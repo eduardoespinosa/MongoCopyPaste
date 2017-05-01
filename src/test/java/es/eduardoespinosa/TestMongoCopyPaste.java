@@ -1,4 +1,5 @@
-import es.eduardoespinosa.MongoCopyPaste;
+package es.eduardoespinosa;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -12,12 +13,12 @@ public class TestMongoCopyPaste {
     MongoCopyPaste mcp;
 
     @Before
-    void setUp(){
+    public void setUp(){
         mcp = new MongoCopyPaste();
     }
 
     @Test
-    void testDoCopyInAllCollections(){
+    public void testDoCopyInAllCollections(){
         // replace with proper values
         mcp.setOrigin(mcp.getMongo("remote", 27017, "", ""));
         mcp.setTarget(mcp.getMongo("localhost", 27017, "", ""));
@@ -25,7 +26,7 @@ public class TestMongoCopyPaste {
         mcp.doCopy();
     }
     @Test
-    void testDoCopyAtListedCollections(){
+    public void testDoCopyAtListedCollections(){
         // replace with proper values
         mcp.setOrigin(mcp.getMongo("remote", 27017, "", ""));
         mcp.setTarget(mcp.getMongo("localhost", 27017, "", ""));
