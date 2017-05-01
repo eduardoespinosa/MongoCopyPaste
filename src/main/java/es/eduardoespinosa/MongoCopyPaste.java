@@ -44,7 +44,7 @@ public class MongoCopyPaste {
 		return dataBasesCollections;
 	}
 
-	private void setDataBasesCollections(File file) {
+	public void setDataBasesCollections(File file) {
 		ObjectMapper objectMapper = new ObjectMapper();
 		MapType dc = objectMapper.getTypeFactory().constructMapType(HashMap.class, String.class, ArrayList.class);
 
@@ -55,7 +55,7 @@ public class MongoCopyPaste {
 		}
 	}
 
-	private void setDataBasesCollections(String string) {
+	public void setDataBasesCollections(String string) {
 		ObjectMapper objectMapper = new ObjectMapper();
 		MapType dc = objectMapper.getTypeFactory().constructMapType(HashMap.class, String.class, ArrayList.class);
 
