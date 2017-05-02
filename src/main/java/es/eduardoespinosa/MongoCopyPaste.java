@@ -45,6 +45,7 @@ public class MongoCopyPaste {
 	}
 
 	public void setDataBasesCollections(File file) {
+		//TODO: Change implementation to call JSONAbstract whe it has MapType support
 		ObjectMapper objectMapper = new ObjectMapper();
 		MapType dc = objectMapper.getTypeFactory().constructMapType(HashMap.class, String.class, ArrayList.class);
 
