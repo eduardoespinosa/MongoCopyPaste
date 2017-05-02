@@ -1,12 +1,12 @@
 {
   "origin": {
-    "server": "remote",
+    "address": "remote",
     "port": 27017,
     "user": "user",
     "pass": "pass"
   },
   "target": {
-    "server": "localhost",
+    "address": "localhost",
     "port": 27017,
     "user": "user",
     "pass": "pass"

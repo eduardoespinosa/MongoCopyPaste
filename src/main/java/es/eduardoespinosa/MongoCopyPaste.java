@@ -2,7 +2,10 @@ package es.eduardoespinosa;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.MapType;
-import com.mongodb.*;
+import com.mongodb.BasicDBObject;
+import com.mongodb.MongoBulkWriteException;
+import com.mongodb.MongoClient;
+import com.mongodb.MongoClientURI;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoIterable;
@@ -23,6 +26,8 @@ public class MongoCopyPaste {
 	private MongoClient target;
 	private HashMap<String, ArrayList<String>> dataBasesCollections;
 	private String query;
+
+	private MongoCopyPasteSetUp mongoCopyPasteSetUp;
 
 	public MongoClient getOrigin() {
 		return origin;
@@ -119,6 +124,20 @@ public class MongoCopyPaste {
 				System.err.println(e);
 			}
 		}
+	}
+
+	public void setUp(File file) {
+		//FIXME: JSONAbstract most be called from proper repository
+		this.mongoCopyPasteSetUp = JSONAbstract.getObject(file, MongoCopyPasteSetUp.class);
+
+		Server origin = this.mongoCopyPasteSetUp.getOrigin();
+		Server target = this.mongoCopyPasteSetUp.getTarget();
+
+		this.origin = getMongo(origin.getAddress(), origin.getPort(), origin.getUser(), origin.getPass());
+		this.target = getMongo(target.getAddress(), target.getPort(), target.getUser(), target.getPass());
+		this.dataBasesCollections = this.mongoCopyPasteSetUp.getDataBasesCollections();
+		this.query = this.mongoCopyPasteSetUp.getQuery();
+
 	}
 
 	public void doCopy() {
