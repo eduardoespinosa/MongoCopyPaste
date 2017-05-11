@@ -6,6 +6,7 @@ import com.mongodb.*;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoIterable;
+import org.apache.commons.lang3.StringUtils;
 import org.bson.Document;
 
 import java.io.File;
@@ -88,7 +89,7 @@ public class MongoCopyPaste {
 	public MongoClient getMongo(String server, Integer port, String user, String pass) {
 		MongoClient mongo = null;
 
-		if (!user.equals("") && !pass.equals("")) {
+		if (StringUtils.isNotBlank(user) && StringUtils.isNotBlank(pass)) {
 			mongo = new MongoClient(new MongoClientURI("mongodb://" + user + ":" + pass + "@" + server + ":" + port));
 		} else {
 			mongo = new MongoClient(server, port);
