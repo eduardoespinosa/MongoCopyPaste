@@ -95,6 +95,20 @@ public class MongoCopyPaste {
 		}
 		return mongo;
 	}
+	
+	public MongoClient getMongo(String server, Integer port){
+		return getMongo(server, port, null, null);
+	}
+	
+	public MongoClient getMongo(String server){
+		Integer defaultPort = 27017;
+		return getMongo(server, defaultPort);
+	}
+
+	public MongoClient getMongo(String server, String user, String pass) {
+		Integer defaultPort = 27017;
+		return getMongo(server, defaultPort, user, pass);
+	}
 
 	private FindIterable<Document> getCursor(MongoClient mongo, String database, String collection) {
 		MongoCollection dbCollection = getCollection(mongo, database, collection);
