@@ -37,8 +37,7 @@ public class TestMongoCopyPaste {
 
     @Test
     public void testSetup(){
-        mcp.setUp(new File("src/main/resources/mongoCopyPasteSetUp.json"));
+        mcp.setUp(new File("src/test/resources/mongoCopyPasteSetUp.json"));
         mcp.doCopy();
     }
-
 }
