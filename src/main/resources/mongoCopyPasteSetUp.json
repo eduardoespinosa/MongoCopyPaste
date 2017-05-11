@@ -1,0 +1,25 @@
+{
+  "origin": {
+    "address": "remote",
+    "port": 27017,
+    "user": "user",
+    "pass": "pass"
+  },
+  "target": {
+    "address": "localhost",
+    "port": 27017,
+    "user": "user",
+    "pass": "pass"
+  },
+  "dataBasesCollections": {
+    "dataBaseOne": [
+      "collection1",
+      "collection2"
+    ],
+    "dataBaseTwo": [
+      "collection3",
+      "collection4"
+    ]
+  },
+  "query": "{someKey : 'someValue'}"
+}
